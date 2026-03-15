@@ -1,6 +1,8 @@
 const User = require("../model/Usermodel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+// const cloudinary = require("cloudinary").v2;
+const cloudinary = require("../config/cloudinary");
 
 exports.signup = async (req, res) => {
   try {
@@ -41,39 +43,18 @@ exports.signup = async (req, res) => {
     };
 
     //add login logic
-    try {
-    } catch (err) {
-      res.status(400).json({
-        success: false,
-        message: `payload error ${err}`,
-      });
-    }
 
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "2h",
     });
-    try {
       user = user.toObject();
       user.password = undefined;
       user.token = token;
-    } catch (err) {
-      res.status(400).json({
-        success: false,
-        message: `token error: ${err}`,
-      });
-    }
+
     const options = {
       expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
       httpOnly: true,
     };
-
-    try {
-    } catch (err) {
-      res.status(400).json({
-        success: false,
-        message: `option error : ${err}`,
-      });
-    }
 
     return res.cookie("token", token, options).status(200).json({
       success: true,
@@ -84,11 +65,12 @@ exports.signup = async (req, res) => {
   } catch (err) {
     return res.status(400).json({
       success: false,
-      message: "User cannot be registered please try again",
+      message: "User cannot be registered please try againn",
     });
   }
 };
 
+//kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 // exports.signup = async (req, res) => {
 //   try {
 
@@ -175,8 +157,8 @@ exports.signin = async (req, res) => {
       user = user.toObject();
       user.token = token;
       user.password = undefined;
-      return res
-        .cookie("token", token, {
+
+      return res.cookie("token", token, {
           expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
           httpOnly: true,
         })
@@ -222,27 +204,26 @@ exports.logout = async (req, res) => {
 exports.updateprofile = async (req, res) => {
   try {
     const { profilepic } = req.body;
-    const userId = req.user._id;
+    const userId = req.user.id;
 
     if (!profilepic) {
       return res.status(400).json({ message: "profile pic is required" });
     }
 
-    const uploadResponse = cloudinary.uploader.upload(profilepic);
+    const uploadResponse = await cloudinary.uploader.upload(profilepic);
     const updateUser = await User.findByIdAndUpdate(
       userId,
       { profilepic: uploadResponse.secure_url },
       { new: true },
     );
 
-    res.status(200).json({
-      success: true,
-      message: "profile update successfully",
-    });
+    res.status(200).json(updateUser);
   } catch (err) {
-    res.status(400).json({
+    console.log("ERROR IN UPDATE PROFILE:", err);
+    res.status(500).json({
       success: false,
       message: "server internal error",
+      
     });
   }
 };

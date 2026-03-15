@@ -8,7 +8,7 @@ const {protectRoute} = require("../middlewares/auth")
 router.post("/signup",signup)
 router.post("/signin",signin)
 router.post("/logout",logout)
-router.post("/updateprofile",protectRoute,updateprofile)
+router.put("/updateprofile",protectRoute,updateprofile)
 router.get("/check",protectRoute,check)
 // router.get("/student",auth,isStudent,(req,res)=>{
 //     res.json({

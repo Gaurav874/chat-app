@@ -1,0 +1,93 @@
+/* Container ka background kaafi dark hai (Almost Black/Dark Grey) */
+.login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background-color: #101217; /* Photo wala dark color */
+  color: #ffffff;
+}
+
+/* Left Side Form Wrapper */
+.form-wrapper {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Logo Box styling */
+.logo-box {
+  background-color: rgba(116, 128, 255, 0.1); /* Subtle blue tint */
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+  color: #7480ff; /* Icon color */
+}
+
+/* Input Fields */
+.input-bordered {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  background-color: #191c24; /* Darker input background */
+  border: 1px solid #2c313a; /* Subtle border */
+  border-radius: 8px;
+  color: white;
+  transition: border-color 0.3s;
+}
+
+.input-bordered:focus {
+  border-color: #7480ff;
+  outline: none;
+}
+
+/* Primary Button (Sign In) - Jo photo mein light blue/purple hai */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #7480ff; /* Exactly like the image button */
+  color: #101217; /* Dark text on light button looks clean */
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background-color: #6366f1;
+}
+
+/* Icons color */
+.field-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4b5563; /* Muted icon color */
+}
+
+.eye-icon-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+/* Footer Link */
+.orange-link {
+  color: #7480ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.orange-link:hover {
+  text-decoration: underline;
+}

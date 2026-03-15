@@ -41,4 +41,43 @@ export const useAuthStore = create((set) => ({
       set({ isSigningUp: false });
     }
   },
+  
+  login: async (data) => {
+    set({ isLoggingIn: true });
+    try {
+      const res = await axiosInstance.post("/signin", data);
+      set({ authUser: res.data.user });
+      toast.success("Logged in successfully");
+      
+      // Optional: Login ke baad socket connect karne ka logic yahan aayega
+    } catch (error) {
+      toast.error(error.response.data.message || "Something went wrong");
+    } finally {
+      set({ isLoggingIn: false });
+    }
+  },
+
+  logout: async () => {
+    try {
+      await axiosInstance.post("/logout");
+      set({ authUser: null }); // State clear karna zaroori hai
+      toast.success("Logged out successfully");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Logout failed");
+    }
+  },
+
+  updateProfile: async (data) => {
+  set({ isUpdatingProfile: true });
+  try {
+    const res = await axiosInstance.put("/updateprofile", data);
+    set({ authUser: res.data });
+    toast.success("Profile updated successfully");
+  } catch (error) {
+    console.log("error in update profile:", error);
+    toast.error(error.response.data.message);
+  } finally {
+    set({ isUpdatingProfile: false });
+  }
+},
 }));

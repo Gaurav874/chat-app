@@ -1,0 +1,90 @@
+.navbar-header {
+  background-color: #101214;
+  border-bottom: 1px solid #1f2937;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: 0.75rem 0;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.navbar-logo:hover {
+  opacity: 0.8;
+}
+
+.logo-icon-bg {
+  background-color: rgba(116, 128, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+}
+
+.logo-icon-small {
+  color: #7480ff;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.logo-text {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #9ca3af; /* Gray color text */
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  color: white;
+}
+
+.nav-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+/* Logout specific style */
+.logout-btn {
+  color: #9ca3af;
+}
+
+/* Responsive: Choti screen pe text hide kar do */
+@media (max-width: 640px) {
+  .nav-text {
+    display: none;
+  }
+}

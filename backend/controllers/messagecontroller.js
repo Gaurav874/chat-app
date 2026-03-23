@@ -1,8 +1,6 @@
 const User = require("../model/Usermodel")
 const Message = require("../model/Messagemodel")
 
-// const cloudinary = require("../lib/cloudinary");
-// const { getReceiverSocketId, io } = require("../lib/socket");
 const cloudinary = require("../config/cloudinary");
 const { getReceiverSocketId, io} = require("../config/socket.js");
 
@@ -22,12 +20,8 @@ exports.getUsersForSidebar = async(req,res)=>{
 
 exports.getMessages = async(req,res)=>{
     try{
-        console.log("1")
         const {id:userToChatId} = req.params
-                console.log("2")
-
         const myId = req.user._id
-                console.log("3")
 
 
         const messages = await Message.find({
@@ -36,8 +30,6 @@ exports.getMessages = async(req,res)=>{
                 {senderId:userToChatId,receiverId:myId}
             ]
         });
-                console.log("5")
-
 
         res.status(200).json(messages)
     }
@@ -84,7 +76,6 @@ exports.send = async(req,res)=>{
             io.to(receiverSocketId).emit("newMessage", newMessage);
         }
 
-        console.log("2")
         res.status(200).json(newMessage)
     }
     catch(err){

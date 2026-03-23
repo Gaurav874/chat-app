@@ -76,7 +76,6 @@ exports.auth = (req,res,next)=>{
 // }
 
 exports.protectRoute = async(req,res,next)=>{
-    console.log("protectRoutee started here . . .")
     try{
         const token = req.cookies.token;
         if(!token){

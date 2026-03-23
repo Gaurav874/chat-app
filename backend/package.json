@@ -22,6 +22,7 @@
     "soket.io": "^0.0.1-security"
   },
   "dependencies": {
+    "chat-app": "file:..",
     "cors": "^2.8.6",
     "socket.io": "^4.8.3"
   }

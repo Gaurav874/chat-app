@@ -8,7 +8,8 @@ const path = require("path")
 
 require('dotenv').config();
 port = process.env.PORT || 3000;
-// const __dirname = path.resolve();
+const __dirname = path.resolve();
+
 
 const cookieParser = require("cookie-parser")
 app.use(cookieParser())
@@ -32,8 +33,11 @@ dbConnect()
 if(process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
    
+    // app.get("*", (req, res) => {
+    //     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    // });
     app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+        res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
     });
 }
 
@@ -41,6 +45,6 @@ server.listen(port,function (){
     console.log(`server is started at port number ${port}`);
 })
 
-app.get("/",(req,res)=>{
-    res.send(`<h1>Heloo Jee</h1>`)
-})
+// app.get("/",(req,res)=>{
+//     res.send(`<h1>Heloo Jee</h1>`)
+// })

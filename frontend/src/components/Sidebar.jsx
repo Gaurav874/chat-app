@@ -46,7 +46,9 @@ const Sidebar = () => {
 
       {/* Users List */}
       <div className="users-list">
-        {filteredUsers.map((user) => (
+        {filteredUsers.map((user) => {
+            console.log("this is image", user.profilepic);
+          return(
           <button
             key={user._id}
             onClick={() => setSelectedUser(user)}
@@ -55,7 +57,7 @@ const Sidebar = () => {
             {/* Avatar Section */}
             <div className="avatar-wrapper">
               <img
-                src={user.profilePic || "/dimg.jpg"}
+                src={user.profilepic || "/dimg.jpg"}
                 // alt={user.name}
                 className="user-avatar"
               />
@@ -63,7 +65,6 @@ const Sidebar = () => {
                 <span className="online-indicator"></span>
               )}
             </div>
-
             {/* User Details - Large screens par dikhega */}
             <div className="user-info">
               <div className="user-name">{user.name}</div>
@@ -72,7 +73,7 @@ const Sidebar = () => {
               </div>
             </div>
           </button>
-        ))}
+        )})}
         {filteredUsers.length === 0 && (
           <div className="text-center text-zinc-500 py-4">No online users</div>
           )}

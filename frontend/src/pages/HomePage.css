@@ -1,44 +1,31 @@
-/* Screen ka poora background aur height */
 .home-container {
-  height: 100vh;
-  /* background-color: #f3f4f6; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Page ka wrapper jo spacing handle karega */
-.home-wrapper {
-  padding-top: 5rem; /* pt-20 */
-  padding-left: 1rem;
-  padding-right: 1rem;
   width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-/* Beech wala main card */
-.home-card {
-  background-color: rgba(60, 58, 58, 0.5);
-  border-radius: 0.5rem; /* rounded-lg */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* shadow-cl */
-  width: 100%;
-  max-width: 1280px; /* max-w-6xl approx */
-  /* Screen height se thoda chota (100vh - 8rem) */
-  height: calc(100vh - 8rem); 
-}
-
-/* Sidebar aur Chat ko side-by-side rakhne ke liye */
-.home-layout {
-  display: flex;
-  height: 100%;
-  border-radius: 0.5rem;
+  height: calc(100vh - 72px);   /* Navbar ki height */
+  background-color: #FDFBF8;
   overflow: hidden;
 }
 
+.home-wrapper {
+  width: 100%;
+  height: 100%;
+}
 
-/***********************************************************************************************************************/
-/* Main Container */
+.home-card {
+  width: 100%;
+  height: 100%;
+  background-color: #AFEEEE;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.home-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Main Container jb chat open na ho */
 .no-chat-container {
   width: 100%;
   display: flex;
@@ -47,7 +34,9 @@
   align-items: center;
   justify-content: center;
   padding: 4rem; /* p-16 */
-  /* background-color: rgba(255, 255, 255, 0.5);  */
+  background-color: #F5F1EB;
+  background-color: #f0c079;
+
 }
 
 /* Content Wrapper */
@@ -72,7 +61,7 @@
   width: 4rem; /* w-16 */
   height: 4rem; /* h-16 */
   border-radius: 1rem; /* rounded-2xl */
-  background-color: rgba(59, 130, 246, 0.1); /* bg-primary/10 */
+  background-color: rgba(59, 130, 246, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,6 +76,7 @@
   font-size: 1.5rem; /* text-2xl */
   font-weight: 700; /* font-bold */
   margin-bottom: 0.5rem;
+  color: #1F2937;
 }
 
 .welcome-subtitle {
@@ -109,13 +99,17 @@
   }
 }
 
-/************************************************************************************************/
+/* ==================================================================================
+   2. SIDEBAR COMPONENTS
+   ================================================================================== */
 
 /* Sidebar ka main container */
 .sidebar-container {
   height: 100%;
   width: 5rem; /* Default mobile width (w-20) */
-  border-right: 1px solid #e5e7eb;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #AFEEEE;
+  background-color: #ebe3e3;
   display: flex;
   flex-direction: column;
   transition: all 0.2s;
@@ -130,9 +124,10 @@
 
 /* Header Section */
 .sidebar-header {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   width: 100%;
   padding: 1.25rem; /* p-5 */
+  color: #1F2937;
 }
 
 .header-content {
@@ -169,17 +164,18 @@
   border: none;
   background: none;
   cursor: pointer;
+  color: #1F2937;
   transition: background-color 0.2s;
 }
 
 .user-item:hover {
-  /* background-color: #232e46; */
-  background-color: #fed7aa;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
 }
 
 .active-user {
-  background-color: #fed7aa;
-  outline: 1px solid black;
+  background-color: #6768cc !important; /* Selected user highlight (Pale Mustard Yellow) */
+  border-radius: 0.5rem;
 }
 
 /* Avatar Styles */
@@ -210,7 +206,7 @@
   height: 0.75rem;
   background-color: #22c55e; /* bg-green-500 */
   border-radius: 50%;
-  border: 2px solid #18181b; /* ring-zinc-900 */
+  border: 2px solid #AFEEEE; /* Ring background keeps custom sidebar alignment */
 }
 
 /* User Info (Name & Status) */
@@ -235,9 +231,5 @@
 
 .user-status {
   font-size: 0.875rem;
-  color: #71717a; /* text-zinc-400 */
+  color: rgba(0, 0, 0, 0.4);
 }
-
-
-
-/****************************************************************************************************/

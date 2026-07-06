@@ -39,36 +39,12 @@ const ChatContainer = () => {
         <div className="chat-container">
             <ChatHeader/>
 
-            {/* <div className="messages-box">
-                {messages.map((message)=>(
-                    <div key={message._id} className={`chat-bubble-wrapper ${
-              message.senderId === authUser._id ? "chat-end" : "chat-start"
-            }`}>
 
-                {message.image &&(
 
-                <div>
-                    <img src={
-                  message.senderId === authUser._id
-                    ? authUser.profilePic || "/dimg.jpg"
-                    : selectedUser.profilePic || "/dimg.jpg"
-                } alt="profile"/>
-                </div>
-                )}
 
-                <div className="chat-header-time">
-                    <time className="time-text">{message.createdAt}</time>
-                </div>
-                <div className="chat-content">
-                    {message.image && (<img src={message.image} alt="Attachment" className="message-img" />)}
-                    {message.text && <p>{message.text}</p>}
-                </div>            
-                    </div>
-                ))}
-                <div ref={messageEndRef}/>
-            </div> */}
-
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="messages-area">
+              <div className="space-y-4">
+              
   {messages.map((message) => (
     <div
       key={message._id}
@@ -95,18 +71,7 @@ const ChatContainer = () => {
         </div>
       </div>
 
-      {/* Header: Time (Optional: User Name) */}
-      {/* <div className="chat-header mb-1"> */}
-
-      {/* </div> */}
-
-      {/* Message Content Section */}
       <div className={`chat-bubble flex flex-col gap-2 ${message.senderId === authUser._id ? "chat-bubble-primary" : "chat-bubble-secondary"}`}>
-      {/* <div
-  className={`flex flex-col ${
-    message.senderId === authUser._id ? "items-end" : "items-start"
-  }`}
-> */}
 
     
         {message.image && (
@@ -119,14 +84,10 @@ const ChatContainer = () => {
         {message.text && <p>{message.text}</p>}
       </div>
 
-      {/* Footer: Delivered/Seen Status (Optional) */}
-      {/* <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
-        Delivered
-      </div> */}
     </div>
   ))}
-  {/* Isko loop ke bahar rakhna scroll ke liye */}
   <div ref={messageEndRef} />
+  </div>
 </div>
 
             <MessageInput />

@@ -2,14 +2,22 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100%;
   overflow: hidden;
-  background-color: #121212; /* Dark Theme */
+  background-color: #c9beae;
+  background-color: #c8cafd;
 }
 
 .messages-box {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
+}
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
 }
 
 .chat-bubble-wrapper {
@@ -25,7 +33,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #333;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .chat-content {
@@ -33,12 +41,18 @@
   padding: 0.7rem 1rem;
   border-radius: 12px;
   margin-top: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .chat-start .chat-content {
   background-color: #2a2a2a;
   color: white;
 }
+/* .chat-start .chat-content {
+  background-color: #F8D8C9; 
+  color: #1F2937;
+} */
 
 .chat-end .chat-content {
   background-color: #d4af37; /* Golden-ish */
@@ -56,11 +70,12 @@
 
 .chat-header {
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid #2a2a2a;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1a1a1a;
+  background-color: #d894fd;
+  /* background-color: #F0A7A1; */
 }
 
 .header-info {
@@ -74,33 +89,39 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #333;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .header-name {
   font-size: 1rem;
   font-weight: 600;
-  color: white;
+  color: #1F2937;
   margin: 0;
 }
 
 .header-status {
   font-size: 0.8rem;
-  color: #888;
+  color: rgba(0, 0, 0, 0.5);
   margin: 0;
 }
 
 .close-btn {
-  background: transparent;
+  background: #FFFFFF; /* Pure White round background */
   border: none;
-  color: #ef4444; /* Red color for close */
+  color: #ef4444; /* Red cross marker icon */
   cursor: pointer;
-  padding: 5px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, background-color 0.2s;
 }
 
 .close-btn:hover {
+  transform: scale(1.05);
   background-color: rgba(239, 68, 68, 0.1);
 }
 
@@ -109,8 +130,10 @@
 .input-container {
   padding: 1rem;
   width: 100%;
-  background-color: #1a1a1a;
-  border-top: 1px solid #2a2a2a;
+  background-color: #d5ccbd;
+  /* background-color: #F5F1EB; */
+  background-color: #f4e1c7;
+  background-color: #7476c9;
 }
 
 /* Image Preview Box */
@@ -127,7 +150,7 @@
   height: 80px;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #333;
+  border: 1px solid #e5e7eb;
 }
 
 .remove-img-btn {
@@ -157,7 +180,8 @@
   flex: 1;
   display: flex;
   align-items: center;
-  background-color: #2a2a2a;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 25px;
   padding: 5px 15px;
   gap: 10px;
@@ -167,10 +191,11 @@
   flex: 1;
   background: transparent;
   border: none;
-  color: white;
+  color: #1F2937;
   padding: 8px 0;
   outline: none;
 }
+
 
 .hidden-file-input {
   display: none;
@@ -179,21 +204,22 @@
 .icon-btn {
   background: transparent;
   border: none;
-  color: #888;
+  color: #4f4e4e;
   cursor: pointer;
   display: flex;
   align-items: center;
   transition: color 0.2s;
 }
 
+
 .icon-btn:hover, .icon-btn.active {
-  color: #d4af37; /* Golden color when image is selected or hover */
+  color: #A1E4D6;
 }
 
 /* Send Button */
 .send-btn {
-  background-color: #d4af37;
-  color: black;
+  background-color: #A1E4D6; /* Mint Aquamarine color button */
+  color: #1F2937;
   border: none;
   border-radius: 50%;
   width: 45px;
@@ -202,16 +228,18 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s, background 0.2s;
 }
 
 .send-btn:hover:not(:disabled) {
   transform: scale(1.05);
-  background-color: #c49a2d;
+  background-color: #8CD6C7;
 }
 
 .send-btn:disabled {
-  background-color: #333;
-  color: #666;
+  background-color: #E5E7EB;
+  color: #9CA3AF;
   cursor: not-allowed;
+  box-shadow: none;
 }

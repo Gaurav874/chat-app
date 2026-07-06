@@ -33,8 +33,8 @@ const Navbar = () => {
               </Link>
 
               <button className="nav-btn logout-btn" onClick={logout}>
-                <LogOut className="nav-icon" />
-                <span className="nav-text">Logout</span>
+                <LogOut className="nav-icon logout-red" />
+                <span className="nav-text logout-red">Logout</span>
               </button>
             </>
           )}
